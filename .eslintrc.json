@@ -1,5 +1,7 @@
 // "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
-// pnpm add --save-dev prettier-plugin-tailwindcss @ianvs/prettier-plugin-sort-imports eslint-plugin-unicorn @typescript-eslint/eslint-plugin eslint-config-prettier
+// pnpm add --save-dev prettier-plugin-tailwindcss @ianvs/prettier-plugin-sort-imports eslint-plugin-unicorn @typescript-eslint/eslint-plugin eslint-config-prettier husky
+// pnpm dlx husky-init
+// add to pre-commit-file: pnpm format pnpm lint
 
 {
   "$schema": "https://json.schemastore.org/eslintrc",
