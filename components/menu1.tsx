@@ -57,21 +57,20 @@ export const Navigation = () => (
   </motion.ul>
 )
 
-export const Menu = () => {
+export default function Menu1() {
   const [isOpen, toggleOpen] = useCycle(false, true)
   const containerRef = useRef(null)
   return (
     <>
-      <p>{isOpen ? "open" : "closed"}</p>
       <motion.nav
         initial={false}
         animate={isOpen ? "open" : "closed"}
         ref={containerRef}
         variants={sidebar}
-        className="absolute right-8 top-4 flex  cursor-pointer flex-col font-medium text-gray-700"
+        className=" right-8 top-4 flex cursor-pointer flex-col font-medium text-gray-700"
         onClick={() => toggleOpen()}
       >
-        <motion.div variants={btnVariant} className="absolute right-2 top-2 rounded-[20px] border-0 bg-[#d0ff71] px-5 py-[6px]">
+        <motion.div variants={btnVariant} className=" right-2 top-2 rounded-[20px] border-0 bg-[#d0ff71] px-5 py-[6px]">
           {isOpen ? "CLOSE" : "MENU"}
         </motion.div>
         <Navigation />
@@ -83,6 +82,7 @@ const sidebar = {
   open: {
     height: 450,
     width: 350,
+    padding: 10,
     borderRadius: 20,
     backgroundColor: "#d0ff71",
     transition: {
@@ -92,10 +92,11 @@ const sidebar = {
   },
   closed: {
     height: 0,
+    padding: 0,
     width: 100,
     transition: {
       type: "spring",
-      delay: 0.5,
+      when: "afterChildren",
       duration: 2,
     },
   },

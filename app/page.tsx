@@ -2,13 +2,12 @@
 
 import Link from "next/link"
 
-import { Menu } from "@/components/menu"
-
 export default function Home() {
   return (
-    <main className="">
-      <Link href="/menu">page 2</Link>
-      <Menu />
+    <main className="p-8">
+      <Link href="/menu" className="hover:text-orange-400">
+        Go to Menu&apos;s
+      </Link>
     </main>
   )
 }
