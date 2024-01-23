@@ -1,9 +1,15 @@
-'use client'
+"use client"
 
-import { Menu } from '@/components/menu2'
-import React from 'react'
+import React from "react"
+
+import { Menu } from "@/components/menu2"
+import Link from "next/link"
+
 export default function Page() {
   return (
-    <><Menu/></>
+    <>
+       <Link href="/">page 1</Link>
+      <Menu />
+    </>
   )
 }

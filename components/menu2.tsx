@@ -7,8 +7,7 @@ const variants = {
   open: {
     y: 0,
     opacity: 1,
-    transition: {
-    },
+    transition: {},
   },
   closed: {
     y: 50,
@@ -22,10 +21,12 @@ const variants = {
 export const MenuItem = ({ i }: { i: string }) => {
   return (
     <motion.li
-      variants={variants} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}
-      className="m-6 text-4xl font-medium text-black rounded-[20px] pl-5 py-1 bg-yellow-400"
+      variants={variants}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      className="m-6 rounded-[20px] bg-yellow-400 py-1 pl-5 text-4xl font-medium text-black"
     >
-    {i}
+      {i}
     </motion.li>
   )
 }
@@ -42,7 +43,7 @@ const navVariants = {
 }
 
 export const Navigation = () => (
-  <motion.ul variants={navVariants} className="bg-pink-400 rounded-[20px] m-2">
+  <motion.ul variants={navVariants} className="m-2 rounded-[20px] bg-pink-400">
     {itemIds.map((i) => (
       <MenuItem i={i} key={i} />
     ))}
@@ -60,7 +61,7 @@ export const Menu = () => {
         animate={isOpen ? "open" : "closed"}
         ref={containerRef}
         variants={sidebar}
-        className="absolute right-8 top-4 cursor-pointer p-2 flex flex-col font-medium text-gray-700"
+        className="absolute right-8 top-4 flex cursor-pointer flex-col p-2 font-medium text-gray-700"
         onClick={() => toggleOpen()}
       >
         <motion.div variants={btnVariant} className="float-right rounded-[20px] border-0 bg-[#d0ff71] px-5 py-[6px]">
