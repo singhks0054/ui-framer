@@ -5,16 +5,14 @@ import { motion, useCycle } from "framer-motion"
 const itemIds = ["Projects", "Agency", "Expertise", "Contact"]
 const variants = {
   open: {
-    y: 0,
+    x: 0,
     opacity: 1,
-    transition: {},
+    transition: { type: "spring", y: { stiffness: 10 } },
   },
   closed: {
-    y: 50,
+    x: -150,
     opacity: 0,
-    transition: {
-      // y: { stiffness: 1000 },
-    },
+    transition: { type: "spring", y: { stiffness: 10 } },
   },
 }
 
@@ -34,11 +32,11 @@ export const MenuItem = ({ i }: { i: string }) => {
 const navVariants = {
   open: {
     display: "block",
-    transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+    transition: { delay: 0.5, type: "spring", staggerChildren: 0.3 },
   },
   closed: {
     display: "none",
-    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+    transition: { type: "spring", staggerChildren: 0.2, staggerDirection: 1 },
   },
 }
 
@@ -61,7 +59,7 @@ export const Menu = () => {
         animate={isOpen ? "open" : "closed"}
         ref={containerRef}
         variants={sidebar}
-        className="absolute right-8 top-4 flex cursor-pointer flex-col p-2 font-medium text-gray-700"
+        className="absolute right-8 top-4 flex cursor-pointer flex-col rounded-[20px] bg-[#d0ff71] font-medium text-gray-700"
         onClick={() => toggleOpen()}
       >
         <motion.div variants={btnVariant} className="float-right rounded-[20px] border-0 bg-[#d0ff71] px-5 py-[6px]">
@@ -72,26 +70,26 @@ export const Menu = () => {
     </>
   )
 }
+export default Menu
 const sidebar = {
   open: {
     height: 450,
     width: 350,
-    border: 0,
-    borderRadius: 20,
-    backgroundColor: "#d0ff71",
+    padding: 10,
     transition: {
       type: "spring",
       duration: 2,
-      when: "beforeChildren",
+      bounce: 0,
     },
   },
   closed: {
-    height: 0,
-    width: 100,
+    height: 30,
+    padding: 0,
+    width: 90,
     transition: {
       type: "spring",
-      delay: 0.5,
-      duration: 1,
+      duration: 2,
+      bounce: 0,
     },
   },
 }
@@ -102,13 +100,14 @@ const btnVariant = {
     color: "#d0ff71",
     transition: {
       type: "spring",
-      duration: 2,
+      duration: 0.1,
+      when: "beforeChildren",
     },
   },
   closed: {
     transition: {
       type: "spring",
-      duration: 2,
+      duration: 0.1,
     },
   },
 }

@@ -3,7 +3,7 @@
 import React from "react"
 import Link from "next/link"
 
-import { Menu } from "@/components/menu2"
+import Menu from "@/components/menu2"
 
 export default function Page() {
   return (
